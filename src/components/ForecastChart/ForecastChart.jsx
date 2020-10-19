@@ -5,15 +5,14 @@ import { LineChart,
             YAxis,
             CartesianGrid,
             Tooltip,
-            Legend } from 'recharts'
+            Legend,
+            ResponsiveContainer } from 'recharts'
 import PropTypes from 'prop-types'
 
 const ForecastChart = ({data}) => {
     return (
-        <div>
-            <LineChart width={700}
-                        height={250}
-                        margin={{top: 20, bottom: 20, right: 5, left:5}}
+        <ResponsiveContainer width={"95%"} height={250}>
+            <LineChart margin={{top: 20, bottom: 20, right: 5, left:5}}
                         data={data}>
             <XAxis dataKey="dayHour"></XAxis>
             <YAxis></YAxis>
@@ -23,7 +22,7 @@ const ForecastChart = ({data}) => {
             <Line type="monotone" dataKey="max" stroke="#FF0000"/>
             <Line type="monotone" dataKey="min" stroke="#0000FF"/>
             </LineChart>
-        </div>
+        </ResponsiveContainer>
     )
 }
 

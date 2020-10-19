@@ -7,8 +7,8 @@ import {validValues} from '../IconState'
 const renderForecastItems = node => {
     const {weekDay, hour, state, temperature} = node
     return(
-        <Grid data-testid = 'forecast-item-container'
-            item key = {`${weekDay}${hour}`}>
+        <Grid item data-testid = 'forecast-item-container'
+                key = {`${weekDay}${hour}`}>
             <ForecastItem weekDay = {weekDay}
                             hour = {hour}
                             state = {state}
@@ -19,7 +19,7 @@ const renderForecastItems = node => {
 
 const Forecast = ({list}) => {
     return (
-        <Grid container justify="center" alignItems="center">
+        <Grid container justify="space-around" alignItems="center">
             {list.map(node => renderForecastItems(node))}
         </Grid>
     )
