@@ -1,0 +1,24 @@
+language: node_js
+
+node_js:
+  - "12.16.1"
+
+cache:
+  npm: true
+  directories:
+    - public
+    - .cache
+
+script:
+    - npm test
+    - npm run build
+
+deploy:
+  provider: pages
+  skin-cleanup: true
+  github-token: $GITHUB_TOKEN
+  local_dir: public
+  keep_history: true
+  target_branch: gh-pages
+  on:
+    branch: main
