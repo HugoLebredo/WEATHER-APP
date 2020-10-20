@@ -16,4 +16,4 @@ export default {
     component: CityList
 }
 
-export const WeatherExample = () => <CityList cities={list} onClickCity = {action("click en city")}/>
+export const CityListExample = () => <CityList cities={list} onClickCity = {action("click en city")}/>

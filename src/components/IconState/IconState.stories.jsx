@@ -8,5 +8,5 @@ export default {
     component: IconState
 }
 
-export const CloudyMonday = () => 
+export const Cloudy = () => 
     <IconState state = {state}/>

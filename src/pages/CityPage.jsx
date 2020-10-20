@@ -1,5 +1,6 @@
 import React from 'react'
 import Grid from '@material-ui/core/Grid'
+import AppFrame from '../components/AppFrame'
 import CityInfo from '../components/CityInfo'
 import ForecastChart from '../components/ForecastChart'
 import Forecast from '../components/Forecast'
@@ -49,33 +50,35 @@ const dataForecastChart = [
 
 const CityPage = props => {
     return (
-        <Grid container
-            justify="space-around"
-            direction = "column"
-            spacing={2}>
-            
-            <Grid container item
-                    xs={12}
-                    justify="center"
-                    alignItems="flex-end">
-                    <CityInfo city = {"Avilés"} country={"Spain"}/>  
+        <AppFrame>
+            <Grid container
+                justify="space-around"
+                direction = "column"
+                spacing={2}>
+                
+                <Grid container item
+                        xs={12}
+                        justify="center"
+                        alignItems="flex-end">
+                        <CityInfo city = {"Avilés"} country={"Spain"}/>  
+                </Grid>
+                
+                <Grid item container
+                        xs={12}
+                        justify="center">
+                        <Weather temperature={10} state={"rain"}/>
+                        <WeatherDetails wind={12} humidity={68}/>
+                </Grid>
+                
+                <Grid item  sm={12}>
+                    <ForecastChart data={dataForecastChart}/>
+                </Grid>
+                
+                <Grid item  sm={12}>
+                    <Forecast list={listForecast}></Forecast>
+                </Grid>
             </Grid>
-            
-            <Grid item container
-                    xs={12}
-                    justify="center">
-                    <Weather temperature={10} state={"rain"}/>
-                    <WeatherDetails wind={12} humidity={68}/>
-            </Grid>
-            
-            <Grid item  sm={12}>
-                <ForecastChart data={dataForecastChart}/>
-            </Grid>
-            
-            <Grid item  sm={12}>
-                <Forecast list={listForecast}></Forecast>
-            </Grid>
-        </Grid>
+        </AppFrame>
     )
 }
 
