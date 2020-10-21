@@ -6,5 +6,5 @@ export default {
     component: Wheater
 }
 
-export const WeatherSunny = () => <Wheater temperature = {22} state ={"sunny"}/>
-export const WeatherCloud = () => <Wheater temperature = {10} state ={"cloud"}/>
+export const WeatherSunny = () => <Wheater temperature = {22} state ={"clear"}/>
+export const WeatherCloud = () => <Wheater temperature = {10} state ={"clouds"}/>

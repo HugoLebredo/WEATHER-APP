@@ -44,9 +44,6 @@ const CityList = ({cities, onClickCity}) => {
                     const temperature = data.main.temp
                     const state = data.weather[0].main.toLowerCase()
 
-                    const propValue = { temperature, state }
-                    const propName = `${city}-${country}` 
-
                     setAllWeather(allWeather => ({...allWeather,[`${city}-${country}`]:{temperature,state}})) 
                 })
         }
@@ -58,20 +55,15 @@ const CityList = ({cities, onClickCity}) => {
 
      },[cities])
 
+    return(
+        <List>
+            { 
 
-    const weather = {
-        temperature: 15,
-        state: "rain"
-    }
-        return(
-            <List>
-                { 
-
-                    cities.map(city => renderCityAndCountry(onClickCity)(city,
-                        //weather)) 
-                        allWeather[`${city.city}-${city.country}`]))
-                 }
-            </List>
+                cities.map(city => renderCityAndCountry(onClickCity)(city,
+                    //weather)) 
+                    allWeather[`${city.city}-${city.country}`]))
+                }
+        </List>
         )
     }
 

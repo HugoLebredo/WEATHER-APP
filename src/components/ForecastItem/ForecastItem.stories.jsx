@@ -4,7 +4,7 @@ import ForecastItem from './ForecastItem'
 const temp = 15
 const hour = 13
 const weekday = 'Monday'
-const state = 'cloudy'
+const state = 'clouds'
 
 export default {
     title: "ForecastItem",
