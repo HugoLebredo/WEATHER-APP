@@ -1,7 +1,7 @@
 import React from 'react'
 import IconState from './IconState'
 
-const state = "rain"
+const state = "thunderstorm"
 
 export default {
     title: "IconState",

@@ -3,8 +3,8 @@ import {render, fireEvent} from '@testing-library/react'
 import CityList from './CityList'
 
 const list = [
-    {city:"Madrid",country:"España"},
-    {city:"Lima",country:"Perú"}
+    {city:"Madrid",country:"España",countryCode:"ES"},
+    {city:"Lima",country:"Perú",countryCode:"PE"}
 ]
 
 const fnClickOnItem = jest.fn()

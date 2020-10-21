@@ -6,11 +6,13 @@ import CityList from '../components/CityList'
 
 const cities = [{
     city:"Madrid",
-    country:"España"
+    country:"España",
+    countryCode:"ES"
     },
     {
-    city:"Lima",
-    country:"Perú"
+    city:"Bogotá",
+    country:"Colombia",
+    countryCode:"CO"
     }]
 
 const MainPage = props => {
@@ -19,7 +21,6 @@ const MainPage = props => {
 
     const onClickHandler = () => {
         history.push('/city')
-        console.log("boton pulsao")
     }
     return (
         <AppFrame>

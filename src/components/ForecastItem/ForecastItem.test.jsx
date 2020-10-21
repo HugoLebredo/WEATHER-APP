@@ -6,7 +6,7 @@ import ForecastItem from './ForecastItem'
 test("ForecastItem render", async () => {
     const { findByText } = render(<ForecastItem weekDay={"Sunday"}
                                     hour={16}
-                                    state={"sunny"}
+                                    state={"thunderstorm"}
                                     temperature={100}
                                 />)
     const weekday = await findByText("Sunday")
