@@ -9,14 +9,17 @@ import Alert from '@material-ui/lab/Alert'
 import { url_base_weather, api_key } from '../../constants/api_url'
 import CityInfo from '../CityInfo'
 import Weather from '../Weather'
+import validValues from '../IconState'
 
 const getCityAndCountry = (city, countryCode) => `${city}-${countryCode}`
 
 const renderCityAndCountry = eventOnClickCity => (CityAndCountry, weather) => {
-    const {city,country, countryCode} = CityAndCountry
+
+    const {city, country, countryCode} = CityAndCountry
  
     return (
-        <ListItem button key ={getCityAndCountry(city,countryCode)} onClick={eventOnClickCity}>
+        <ListItem button key = {getCityAndCountry(city, countryCode)}
+                        onClick= {() => eventOnClickCity(city, countryCode)}>
             <Grid container justify = "center" alignItems = "center">
                 <Grid item md = {9} xs = {12}>
                     <CityInfo city = {city} country = {country} />
@@ -50,7 +53,7 @@ const CityList = ({cities, onClickCity}) => {
                 const key = getCityAndCountry(city,countryCode)
                 const temperature = Number(convertUnits(data.main.temp).from("K").to("C").toFixed(0))
                 const state = data.weather[0].main.toLowerCase()
-
+                
                 setAllWeather(allWeather => ({...allWeather,[key]:{temperature,state}})) 
                 
             } catch (error) {
