@@ -9,7 +9,6 @@ import Alert from '@material-ui/lab/Alert'
 import { url_base_weather, api_key } from '../../constants/api_url'
 import CityInfo from '../CityInfo'
 import Weather from '../Weather'
-import validValues from '../IconState'
 
 const getCityAndCountry = (city, countryCode) => `${city}-${countryCode}`
 
