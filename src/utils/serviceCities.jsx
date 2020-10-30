@@ -1,4 +1,3 @@
-
 const cities = [{
     city:"Madrid",
     country:"España",
@@ -16,3 +15,5 @@ const cities = [{
     }]
 
 export const getCities = () => cities
+
+export const getContryByCountryCode = (code) => cities.filter( item => item.countryCode === code)[0].country

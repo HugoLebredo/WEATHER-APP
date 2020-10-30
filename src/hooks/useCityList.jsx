@@ -9,14 +9,14 @@ const useCityList = ( cities ) => {
     const [error,setError] = useState(null)
 
     useEffect(() => {
-        const setWeather = async (city, countryCode) => {
+        const setWeather = async (city, countryCode, country) => {
 
             const url = getUrlWeather(city, countryCode)
             
             try {
                 const response = await axios.get(url)
 
-                const AllWeatherAux = getAllWeather(response, city, countryCode )
+                const AllWeatherAux = getAllWeather(response, city, countryCode, country )
 
                 setAllWeather( allWeather => ({...allWeather,...AllWeatherAux}))
                 

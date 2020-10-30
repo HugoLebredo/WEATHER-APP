@@ -12,7 +12,7 @@ import Weather from '../Weather'
 const renderCityAndCountry = eventOnClickCity => (CityAndCountry, weather) => {
 
     const {city, country, countryCode} = CityAndCountry
- 
+
     return (
         <ListItem button key = {getCityAndCountry(city, countryCode)}
                         onClick= {() => eventOnClickCity(city, countryCode)}>
@@ -21,7 +21,6 @@ const renderCityAndCountry = eventOnClickCity => (CityAndCountry, weather) => {
                     <CityInfo city = {city} country = {country} />
                 </Grid>
                 <Grid item md = {3} xs = {12}>
-
                         <Weather
                             temperature = {weather && weather.temperature}
                             state = {weather && weather.state}

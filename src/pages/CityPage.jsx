@@ -1,7 +1,10 @@
-import React from 'react'
+import React, { useMemo } from 'react'
 import Grid from '@material-ui/core/Grid'
 import LinearProgress from '@material-ui/core/LinearProgress'
 import useCityPage from '../hooks/useCityPage'
+import useCityList from '../hooks/useCityList'
+import { getCityAndCountry } from '../utils/utils'
+import { getContryByCountryCode } from '../utils/serviceCities'
 import AppFrame from '../components/AppFrame'
 import CityInfo from '../components/CityInfo'
 import ForecastChart from '../components/ForecastChart'
@@ -11,7 +14,20 @@ import WeatherDetails from '../components/WeatherDetails'
 
 const CityPage = () => {
 
-    const {data, forecastItemList} = useCityPage()
+    const { data, forecastItemList, city, countryCode } = useCityPage()
+
+    const country = getContryByCountryCode(countryCode)
+
+    const cities = useMemo(() => ([{city, countryCode}]), [city, countryCode])
+    const {  allWeather } = useCityList(cities)
+
+    const key = getCityAndCountry(city, countryCode)
+    const weather = allWeather[key]
+    
+    const temperature = weather && weather.temperature
+    const state = weather && weather.state
+    const wind = weather && weather.wind
+    const humidity = weather && weather.humidity
     
     return (
         <AppFrame>
@@ -24,14 +40,14 @@ const CityPage = () => {
                         xs={12}
                         justify="center"
                         alignItems="flex-end">
-                        <CityInfo city = {"Avilés"} country={"Spain"}/>  
+                        <CityInfo city = {city} country={country}/>  
                 </Grid>
                 
                 <Grid item container
                         xs={12}
                         justify="center">
-                        <Weather temperature={10} state={"rain"}/>
-                        <WeatherDetails wind={12} humidity={68}/>
+                        <Weather temperature={temperature} state={state}/>
+                        <WeatherDetails wind={wind} humidity={humidity}/>
                 </Grid>
                 <Grid>
                      {!data && !forecastItemList && <LinearProgress/>}
