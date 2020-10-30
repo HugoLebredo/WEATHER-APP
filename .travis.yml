@@ -18,8 +18,10 @@ script:
 
 deploy:
   provider: pages
-  cleanup: true
+  skin-cleanup: true
   github-token: $GITHUB_TOKEN
-  local_dir: build
+  local_dir: public
+  keep-history: true
+  target_branch: gh-pages
   on:
     branch: master
